@@ -1,0 +1,31 @@
+/* Garante que o HTML e o body ocupem toda a altura */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%; /* Importante para a técnica do sticky footer */
+}
+
+/* Define o body como um contêiner flex */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main ocupa o espaço disponível */
+main {
+    flex: 1; /* Faz o main crescer para ocupar o espaço restante */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    & a:hover {
+        text-decoration: underline;
+    }
+}
