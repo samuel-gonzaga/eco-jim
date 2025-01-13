@@ -12,6 +12,9 @@ function route($url, $db)
         case 'login':
             require_once __DIR__ . '/../app/views/login.php';
             break;
+        case 'register':
+            require_once __DIR__ . '/../app/views/register.php';
+            break;
         default:
             echo "Página não encontrada!";
             break;

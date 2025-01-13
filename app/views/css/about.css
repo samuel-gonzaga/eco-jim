@@ -93,25 +93,6 @@ section div > div h3 {
     color: #198754;
 }
 
-/* Rodapé */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
-    font-size: 0.9em;
-}
-
-footer a {
-    color: #198754;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
     main {
@@ -142,11 +123,6 @@ footer a:hover {
     section div > div {
         flex: 1;
         min-width: 220px;
-    }
-
-    footer {
-        font-size: 0.8em;
-        padding: 8px 0;
     }
 }
 
@@ -179,10 +155,5 @@ footer a:hover {
     section div > div {
         flex: 1;
         min-width: 180px;
-    }
-
-    footer {
-        font-size: 0.7em;
-        padding: 6px 0;
     }
 }

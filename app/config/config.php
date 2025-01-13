@@ -3,7 +3,7 @@
 // app/config/config.php
 
 $host = 'localhost';
-$dbname = 'login-register';
+$dbname = 'ecojim';
 $username = 'root';
 $password = '';
 

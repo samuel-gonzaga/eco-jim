@@ -11,7 +11,7 @@ if ($currentRoute === 'about') {
 
 ?>
 
-<link rel="stylesheet" href="/ecojim/app/views/css/header.css">
+<link rel="stylesheet" href="/eco-jim/app/views/css/header.css">
 <header>
 <nav class="navbar">
     <div class="container">

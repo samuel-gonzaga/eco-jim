@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/ecojim/app/views/css/base.css">
-    <link rel="stylesheet" href="/ecojim/app/views/css/home.css">
+    <link rel="stylesheet" href="/eco-jim/app/views/css/base.css">
+    <link rel="stylesheet" href="/eco-jim/app/views/css/home.css">
     <title>Eco JIM</title>
 </head>
 <body>
