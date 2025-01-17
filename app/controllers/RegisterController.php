@@ -6,7 +6,7 @@ class RegisterController extends Controller
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = trim($dados['username'] ?? '');
+            $username = trim($dados['name'] ?? '');
             $email = trim($dados['email'] ?? '');
             $password = trim($dados['password'] ?? '');
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);

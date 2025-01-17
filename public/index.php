@@ -7,6 +7,9 @@ require_once __DIR__ . '/../app/helpers/session.php';
 
 require_once __DIR__ . '/../app/controllers/Controller.php';
 require_once __DIR__ . '/../app/controllers/RegisterController.php';
+require_once __DIR__ . '/../app/controllers/LoginController.php';
+require_once __DIR__ . '/../app/controllers/LogoutController.php';
+
 require_once __DIR__ . '/../app/models/User.php';
 
 require_once __DIR__ . '/../app/router.php';
