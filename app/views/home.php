@@ -8,22 +8,51 @@
     <title>Eco JIM</title>
 </head>
 <body>
-    <?php include "templates/header.php"?>
+<?php include "templates/header.php"?>
 
-    <main>
-        <section>
-            <h1>Quem somos nós</h1>
-            <p>
-                O Eco JIM é um projeto de eco ponto que proporcionou a oportunidade da escola se tornar uma participante do
-                <a href="https://ecoteam.com.br/">Eco Team</a> onde nós, alunos da escola Joaquim Izidoro Marins foram
-                escolhidos para desenvolver um projeto a fim de conscientizar a comunidade sobre sustentabilidade e mudanças
-                climáticas.
-            </p>
-        </section>
+<main>
+    <section class="card">
+        <h1>6º Ano A</h1>
+        <p>Lixo coletado: 30kgs</p>
+        <button class="expand-btn">Ver Detalhes</button>
 
-    </main>
+        <div class="detalhes" style="display: none;">
+            <ul>
+                <li>06/01/2025: 04kg</li>
+                <li>07/01/2025: 15kg</li>
+                <li>09/01/2025: 06kg</li>
+            </ul>
+        </div>
+    </section>
 
-    <?php include "templates/footer.php"?>
+    <section class="card">
+        <h1>6º Ano B</h1>
+        <p>Lixo coletado: 25kgs</p>
+        <button class="expand-btn">Ver Detalhes</button>
 
+        <div class="detalhes" style="display: none;">
+            <ul>
+                <li>05/01/2025: 20kg</li>
+                <li>10/01/2025: 05kg</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="card">
+        <h1>6º Ano C</h1>
+        <p>Lixo coletado: 20kgs</p>
+        <button class="expand-btn">Ver Detalhes</button>
+
+        <div class="detalhes" style="display: none;">
+            <ul>
+                <li>05/01/2025: 09kg</li>
+                <li>10/01/2025: 11kg</li>
+            </ul>
+        </div>
+    </section>
+<!--    <button class="floating-button">+</button>-->
+</main>
+<?php include "templates/footer.php"?>
+<script src="/eco-jim/app/views/js/script.js"></script>
 </body>
 </html>
