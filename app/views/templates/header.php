@@ -1,6 +1,7 @@
 <?php
 $currentRoute = basename($_SERVER['REQUEST_URI']);
 
+// Não depende de usuário logado
 if ($currentRoute === 'about') {
     $linkHref = 'home';
     $linkText = 'Home';
@@ -9,10 +10,15 @@ if ($currentRoute === 'about') {
     $linkText = 'About';
 }
 
+// Depende de usuário logado
 if (isLoggedIn()) {
-    $linkHref2 = '#';
-    $linkText2 = 'Dashboard';
+    $linkHrefDashBoard = 'dashboard';
+    $linkTextDashBoard = 'Dashboard';
     $key = true;
+    if ($currentRoute === 'dashboard') {
+        $linkHrefDashBoard = 'home';
+        $linkTextDashBoard = 'Home';
+    }
 } else {
     $key = false;
     $linkHref2 = '';
@@ -27,7 +33,7 @@ if (isLoggedIn()) {
             <h1 class="logo">Eco JIM</h1>
             <ul class="nav-links">
                 <?php if ($key): ?>
-                    <li><a href="<?= $linkHref2; ?>"><?= $linkText2; ?></a></li>
+                    <li><a href="<?= $linkHrefDashBoard; ?>"><?= $linkTextDashBoard; ?></a></li>
                 <?php endif; ?>
                 <li><a href="<?= $linkHref; ?>"><?= $linkText; ?></a></li>
                 <?php if ($key): ?>

@@ -23,6 +23,9 @@ function route($url, $db)
             $logout = new LogoutController($db);
             $logout->logout();
             break;
+        case 'dashboard':
+            require_once __DIR__ . '/../app/views/dashboard.php';
+            break;
         default:
             echo "Página não encontrada!";
             break;
