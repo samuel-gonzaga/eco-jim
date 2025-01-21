@@ -10,49 +10,30 @@
 <body>
 <?php include "templates/header.php"?>
 
-<main>
-    <section class="card">
-        <h1>6º Ano A</h1>
-        <p>Lixo coletado: 30kgs</p>
-        <button class="expand-btn">Ver Detalhes</button>
+<main class="container" id="cardContainer">
+    <button class="fab" id="fab" aria-label="Adicionar novo card">+</button>
 
-        <div class="detalhes" style="display: none;">
-            <ul>
-                <li>06/01/2025: 04kg</li>
-                <li>07/01/2025: 15kg</li>
-                <li>09/01/2025: 06kg</li>
-            </ul>
-        </div>
-    </section>
+    <dialog id="modal" aria-labelledby="modalTitle">
+        <h2 id="modalTitle">Adicionar Novo Card</h2>
+        <button class="x" aria-label="Fechar modal" onclick="modal.close();">❌</button>
+        <input type="text" id="cardTitle" placeholder="Título do card" />
+        <button class="primary" id="addCard">Adicionar</button>
+    </dialog>
 
-    <section class="card">
-        <h1>6º Ano B</h1>
-        <p>Lixo coletado: 25kgs</p>
-        <button class="expand-btn">Ver Detalhes</button>
-
-        <div class="detalhes" style="display: none;">
-            <ul>
-                <li>05/01/2025: 20kg</li>
-                <li>10/01/2025: 05kg</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="card">
-        <h1>6º Ano C</h1>
-        <p>Lixo coletado: 20kgs</p>
-        <button class="expand-btn">Ver Detalhes</button>
-
-        <div class="detalhes" style="display: none;">
-            <ul>
-                <li>05/01/2025: 09kg</li>
-                <li>10/01/2025: 11kg</li>
-            </ul>
-        </div>
-    </section>
-<!--    <button class="floating-button">+</button>-->
+    <!-- Template para cards -->
+    <template id="cardTemplate">
+        <section class="card">
+            <h1 class="card-title"></h1>
+            <p class="card-description"></p>
+            <button class="expand-btn">Ver Detalhes</button>
+            <div class="detalhes" style="display: none;">
+                <ul class="details-list"></ul>
+            </div>
+        </section>
+    </template>
 </main>
-<?php include "templates/footer.php"?>
+
+<?php include "templates/footer.php" ?>
 <script src="/eco-jim/app/views/js/script.js"></script>
 </body>
 </html>
