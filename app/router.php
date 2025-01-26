@@ -4,7 +4,9 @@ function route($url, $db)
 {
     switch ($url) {
         case 'home':
-            require_once __DIR__ . '/../app/views/home.php';
+            $cards = new HomeController($db);
+            $cards->getTurmas();
+            $cards->showHome();;
             break;
         case 'about':
             require_once __DIR__ . '/../app/views/about.php';

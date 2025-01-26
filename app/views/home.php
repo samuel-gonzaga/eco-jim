@@ -21,19 +21,28 @@
     </dialog>
 
     <!-- Template para cards -->
-    <template id="cardTemplate">
-        <section class="card">
-            <h1 class="card-title"></h1>
-            <p class="card-description"></p>
-            <button class="expand-btn">Ver Detalhes</button>
-            <div class="detalhes" style="display: none;">
-                <ul class="details-list"></ul>
-            </div>
-        </section>
-    </template>
+    <div id="cardsContainer"></div>
+    <?php include "templates/cards.php" ?>
+
 </main>
 
 <?php include "templates/footer.php" ?>
 <script src="/eco-jim/app/views/js/script.js"></script>
+<script>
+    const turmas = <?php echo json_encode($turmas); ?>; // Passa os dados das turmas para o JS
+
+    const cardsContainer = document.getElementById('cardsContainer');
+    const cardTemplate = document.getElementById('cardTemplate');
+
+    function createCard(turma) {
+        const cardClone = cardTemplate.content.cloneNode(true);
+        cardClone.querySelector('.card-title').textContent = turma.nome; // Substitua "nome" com o campo correto
+        cardsContainer.appendChild(cardClone);
+    }
+
+    turmas.forEach(turma => {
+        createCard(turma);
+    });
+</script>
 </body>
 </html>
