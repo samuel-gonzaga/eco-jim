@@ -10,9 +10,23 @@
 <body>
 <?php include "templates/header.php"?>
 
-<main class="container" id="cardContainer">
-    <button class="fab" id="fab" aria-label="Adicionar novo card">+</button>
+<main class="container">
+    <!-- Cards -->
+    <div id="cardsContainer"></div>
+    <template id="cardTemplate">
+        <section class="card">
+            <h1 class="card-title"></h1>
+            <p class="card-description"></p>
+            <button class="expand-btn">Ver Detalhes</button>
+            <div class="detalhes" style="display: none;">
+                <ul class="details-list"></ul>
+            </div>
+        </section>
+    </template>
 
+
+    <!-- Botão e modal -->
+    <button class="fab" id="fab" aria-label="Adicionar novo card">+</button>
     <dialog id="modal" aria-labelledby="modalTitle">
         <h2 id="modalTitle">Adicionar Novo Card</h2>
         <button class="x" aria-label="Fechar modal" onclick="modal.close();">❌</button>
@@ -21,22 +35,19 @@
     </dialog>
 
     <!-- Template para cards -->
-    <div id="cardsContainer"></div>
-    <?php include "templates/cards.php" ?>
+
 
 </main>
 
 <?php include "templates/footer.php" ?>
 <script src="/eco-jim/app/views/js/script.js"></script>
 <script>
-    const turmas = <?php echo json_encode($turmas); ?>; // Passa os dados das turmas para o JS
-
+    const turmas = <?php echo json_encode($turmas); ?>;
     const cardsContainer = document.getElementById('cardsContainer');
     const cardTemplate = document.getElementById('cardTemplate');
-
     function createCard(turma) {
         const cardClone = cardTemplate.content.cloneNode(true);
-        cardClone.querySelector('.card-title').textContent = turma.nome; // Substitua "nome" com o campo correto
+        cardClone.querySelector('.card-title').textContent = turma.nome;
         cardsContainer.appendChild(cardClone);
     }
 

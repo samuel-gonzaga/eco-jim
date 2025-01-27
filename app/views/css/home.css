@@ -1,19 +1,22 @@
-/* Estilo geral */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
+:root {
+    --vs-primary: 25 135 84;
 }
 
-/* Estilo do main */
 main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    flex-direction: row;
+}
+
+#cardsContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 /* Cards */
@@ -86,6 +89,31 @@ main {
     margin: 10px;
 }
 
+.fab {
+    position: fixed;
+    bottom: 85px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(var(--vs-primary) / 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    z-index: 1;
+}
+
+.fab:hover {
+    box-shadow: 0 20px 20px -10px rgb(var(--vs-primary) / 50%);
+    transform: translateY(-5px);
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .card {
@@ -113,33 +141,5 @@ main {
 
 
 
-:root {
-    --vs-primary: 25 135 84;
-}
 
-.fab {
-    position: fixed;
-    bottom: 85px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: rgb(var(--vs-primary) / 100%);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.25s ease;
-    z-index: 1;
-}
 
-.fab:hover {
-    box-shadow: 0 20px 20px -10px rgb(var(--vs-primary) / 50%);
-    transform: translateY(-5px);
-}
-
-/* Outros estilos permanecem iguais */
