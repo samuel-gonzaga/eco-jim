@@ -11,6 +11,7 @@
 <?php include "templates/header.php"?>
 
 <main class="container">
+
     <!-- Cards -->
     <div id="cardsContainer"></div>
     <template id="cardTemplate">
@@ -24,8 +25,8 @@
         </section>
     </template>
 
-
     <!-- Botão e modal -->
+    <?php if(isLoggedIn()) {?>
     <button class="fab" id="fab" aria-label="Adicionar novo card">+</button>
     <dialog id="modal" aria-labelledby="modalTitle">
         <h2 id="modalTitle">Adicionar Novo Card</h2>
@@ -33,10 +34,7 @@
         <input type="text" id="cardTitle" placeholder="Título do card" />
         <button class="primary" id="addCard">Adicionar</button>
     </dialog>
-
-    <!-- Template para cards -->
-
-
+    <?php }?>
 </main>
 
 <?php include "templates/footer.php" ?>
