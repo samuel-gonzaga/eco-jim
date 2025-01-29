@@ -13,4 +13,17 @@ class HomeController extends Controller
         $turmas = $this->getTurmas();
         require_once __DIR__ . '/../../app/views/home.php';
     }
+
+    public function createClass($data)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $className = trim($data['class']) ?? '';
+            try {
+                $homeModel = new Turmas($this->db);
+                $homeModel->insertClass($className);
+            } catch (Exception $e) {
+                echo $e;
+            }
+        }
+    }
 }

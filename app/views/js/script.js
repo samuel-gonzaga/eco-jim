@@ -5,6 +5,25 @@ function openModal() {
     fab.addEventListener('click', () => modal.showModal());
 }
 
+function changeInput() {
+    const turma = document.getElementById('btn-turma');
+    const reees = document.getElementById('btn-reees');
+    const classContainer = document.getElementById('classContainer');
+    const reeesContainer = document.getElementById('reeesContainer');
+
+    if(turma) {
+        classContainer.style.display = 'block';
+        reeesContainer.style.display = 'none';
+    } if (reees) {
+        classContainer.style.display = 'none';
+        reeesContainer.style.display = 'block';
+    }
+}
+
+function btnClicked() {
+    let value = true
+}
+
 // const expandButtons = document.querySelectorAll('.expand-btn');
 // expandButtons.forEach(button => {
 //     button.addEventListener('click', () => {

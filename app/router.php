@@ -6,7 +6,8 @@ function route($url, $db)
         case 'home':
             $cards = new HomeController($db);
             $cards->getTurmas();
-            $cards->showHome();;
+            $cards->showHome();
+            $cards->createClass($_POST);
             break;
         case 'about':
             require_once __DIR__ . '/../app/views/about.php';

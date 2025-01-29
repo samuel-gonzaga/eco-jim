@@ -11,6 +11,8 @@ class User
     public function registerUser($name, $email, $hashedPassword)
     {
         try {
+            $database = new Database();
+            $database->conectar();
 //            var_dump($name, $email, $hashedPassword); // Para depuração
 
             if (empty($name) || strlen($name) < 3) {
