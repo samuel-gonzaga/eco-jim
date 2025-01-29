@@ -1,9 +1,9 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     const fab = document.getElementById('fab');
-//     const modal = document.getElementById('modal');
-//     // Abrir modal
-//     fab.addEventListener('click', () => modal.showModal());
-// })
+function openModal() {
+    const fab = document.getElementById('fab');
+    const modal = document.getElementById('modal');
+    // Abrir modal
+    fab.addEventListener('click', () => modal.showModal());
+}
 
 // const expandButtons = document.querySelectorAll('.expand-btn');
 // expandButtons.forEach(button => {

@@ -27,13 +27,27 @@
 
     <!-- Botão e modal -->
     <?php if(isLoggedIn()) {?>
-    <button class="fab" id="fab" aria-label="Adicionar novo card">+</button>
-    <dialog id="modal" aria-labelledby="modalTitle">
-        <h2 id="modalTitle">Adicionar Novo Card</h2>
-        <button class="x" aria-label="Fechar modal" onclick="modal.close();">❌</button>
-        <input type="text" id="cardTitle" placeholder="Título do card" />
-        <button class="primary" id="addCard">Adicionar</button>
+    <button class="fab" id="fab" onclick="openModal()" >+</button>
+
+    <dialog id="modal">
+        <button>Turma</button>
+        <button>REEEs</button>
+        <section>
+            <h2 id="turmaTitle">Adicionar Nova turma</h2>
+            <button class="x" aria-label="Fechar modal" onclick="modal.close();">❌</button>
+            <input type="text" id="cardTitle" placeholder="Nome da turma" />
+            <button class="primary" id="addCard">Adicionar</button>
+        </section>
+        <section style="display: none">
+            <h2 id="turmaTitle">Adicionar lixo (Kg)</h2>
+            <button class="x" aria-label="Fechar modal" onclick="modal.close();">❌</button>
+            <input type="number">
+            <input type="datetime-local" id="cardTitle"/>
+            <button class="primary" id="addCard">Adicionar</button>
+        </section>
     </dialog>
+
+
     <?php }?>
 </main>
 
