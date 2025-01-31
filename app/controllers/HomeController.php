@@ -1,11 +1,17 @@
 <?php
 
-class HomeController extends Controller
+class HomeController
 {
+    private $turmaModel;
+
+    public function __construct()
+    {
+        $this->turmaModel = new Turmas();
+    }
+
     public function getTurmas()
     {
-        $this->turmaModel = new Turmas($this->db);
-        return $this->turmaModel->retornaInfosTurmas();
+        return $this->turmaModel->getClass();
     }
 
     public function showHome()
@@ -17,10 +23,9 @@ class HomeController extends Controller
     public function createClass($data)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $className = trim($data['class']) ?? '';
+            $data = ['className' => $data['class']];
             try {
-                $homeModel = new Turmas($this->db);
-                $homeModel->insertClass($className);
+                $this->createClass($data);
             } catch (Exception $e) {
                 echo $e;
             }

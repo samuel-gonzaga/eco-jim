@@ -1,18 +1,11 @@
 <?php
 
-class Turmas
+class Turmas extends Model
 {
-    private $db;
-    public function __construct($db)
-    {
-        $this->db = $db;
-    }
-
-    public function retornaInfosTurmas()
+    public function getClass()
     {
         $query = 'SELECT * FROM turmas';
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
+        $stmt = $this->executeQuery($query);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -20,18 +13,14 @@ class Turmas
     {
         try {
             $query = 'INSERT INTO `turmas`(`nome`) VALUES (:name)';
-            $stmt = $this->db->prepare($query);
-            return $stmt->execute([
-                ':name' => $className,
-            ]);
-        } catch (Exception $e) {
+            return $this->executeQuery($query, $className);
+        } catch (PDOException $e) {
             if ($e->getCode() === '23000') {
                 return "Sala já foi cadastrada";
             }
             error_log("Erro de validação: " . $e->getMessage());
             return $e->getMessage();
         }
-
     }
 
 }

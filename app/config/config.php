@@ -1,30 +1,44 @@
 <?php
 
+//$host = 'localhost';
+//$dbname = 'ecojim';
+//$username = 'root';
+//$password = '';
+//
+//try {
+//    $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+//    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//} catch (PDOException $e) {
+//    die("Erro na conexão com o banco de dados: " . $e->getMessage());
+//}
+
 class Database {
-    // Propriedades privadas para armazenar as credenciais do banco de dados
+    private static $instance = null;
+    private $conn;
     private $host = 'localhost';
     private $dbname = 'ecojim';
     private $username = 'root';
     private $password = '';
 
-    // Método para conectar ao banco de dados
-    public function conectar() {
+    private function __construct() {
         try {
-            // Cria uma instância do PDO para a conexão com o banco de dados
-            $db = new PDO(
-                "mysql:host={$this->host};dbname={$this->dbname};charset=utf8",
+            $this->conn = new PDO(
+                "mysql:host={$this->host}; dbname={$this->dbname}",
                 $this->username,
                 $this->password
             );
-
-            // Configura o PDO para lançar exceções em caso de erros
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // Retorna a conexão para ser utilizada fora da classe
-            return $db;
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            // Em caso de erro, exibe uma mensagem e encerra a execução
-            die("Erro na conexão com o banco de dados: " . $e->getMessage());
+            die('Erro de conexão: ' . $e->getMessage());
         }
     }
+
+    public static function getInstance() {
+        if (self::$instance === null) {
+            self::$instance = new Database();
+        }
+        return self::$instance->conn;
+    }
+
+    private function __clone() {}
 }

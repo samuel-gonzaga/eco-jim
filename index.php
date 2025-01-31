@@ -13,11 +13,11 @@ require_once __DIR__ . '/app/controllers/HomeController.php';
 
 require_once __DIR__ . '/app/models/User.php';
 require_once __DIR__ . '/app/models/Turmas.php';
+require_once __DIR__ . '/app/models/Model.php';
+
 
 require_once __DIR__ . '/app/router.php';
 
 $url = isset($_GET['url']) ? $_GET['url'] : 'home';
 
-$database = new Database();
-$database->conectar();
-route($url, $database);
+route($url, $db);
