@@ -18,6 +18,3 @@ require_once __DIR__ . '/app/models/Model.php';
 
 require_once __DIR__ . '/app/router.php';
 
-$url = isset($_GET['url']) ? $_GET['url'] : 'home';
-
-route($url, $db);

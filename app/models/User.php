@@ -1,7 +1,6 @@
 <?php
-
-class User extends Model
-{
+require_once __DIR__ . '/Model.php';
+class User extends Model {
     public function registerUser($name, $email, $hashedPassword)
     {
         try {
@@ -33,8 +32,8 @@ class User extends Model
 
     public function retornaInfosUser($email)
     {
-        $query = 'SELECT id, name, email, password FROM users WHERE email = :email';
-        $stmt = $this->executeQuery($query, $email);
+        $query = 'SELECT id, name, email, password FROM users WHERE email = ?';
+        $stmt = $this->executeQuery($query, [$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

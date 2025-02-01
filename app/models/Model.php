@@ -13,9 +13,14 @@ class Model
     {
         try {
             $stmt = $this->db->prepare($query);
-            $stmt->execute($params);
+            if (!empty($params)) {
+                $stmt->execute($params);
+            } else {
+                $stmt->execute();
+
+            }
             return $stmt;
-        } catch (PDOException $e) {
+        } catch (Exception $e) {
             die("Erro na query: " . $e->getMessage());
         }
     }

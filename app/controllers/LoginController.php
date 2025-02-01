@@ -14,8 +14,8 @@ class LoginController extends Controller
 
             if (empty($errors)) {
                 try {
-                    $userModel = new User($this->db);
-                    $user = $userModel->retornaInfosUser($email);
+                    $userModel = new User();
+                    $user = $userModel->retornaInfosUser(['email' => $email]);
 
                     if ($user) {
                         if (password_verify($password, $user['password'])) {

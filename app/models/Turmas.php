@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/Model.php';
 
 class Turmas extends Model
 {
@@ -13,7 +14,7 @@ class Turmas extends Model
     {
         try {
             $query = 'INSERT INTO `turmas`(`nome`) VALUES (:name)';
-            return $this->executeQuery($query, $className);
+            return $this->executeQuery($query, [':name' => $className]);
         } catch (PDOException $e) {
             if ($e->getCode() === '23000') {
                 return "Sala já foi cadastrada";
