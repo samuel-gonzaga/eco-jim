@@ -15,12 +15,12 @@ class Route extends Model
                 break;
             case 'login':
                 $login = new LoginController($this->db);
-                $err = $login->validarLogin($_POST);
+                $errors = $login->validarLogin($_POST);
                 require_once __DIR__ . '/../app/views/login.php';
                 break;
             case 'register':
                 $register = new RegisterController($this->db);
-                $err = $register->validarRegistro($_POST);
+                $errors = $register->validarRegistro($_POST);
                 require_once __DIR__ . '/../app/views/register.php';
                 break;
             case 'logout':

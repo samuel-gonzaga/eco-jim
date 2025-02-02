@@ -4,25 +4,18 @@ class User extends Model {
     public function registerUser($name, $email, $hashedPassword)
     {
         try {
-            if (empty($name) || strlen($name) < 3) {
-                throw new Exception("O nome deve ter pelo menos 3 caracteres.");
-            }
+            Validator::required($name, 'Username');
+            Validator::minLength($name, 3);
 
-            if (!$name || !$email || !$hashedPassword) {
-                throw new Exception("Todos os campos são obrigatórios.");
-            }
-
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                throw new Exception("Formato de e-mail inválido.");
-            }
-
+            Validator::required($email, 'E-Mail');
+            Validator::email($email);
             $role = 'admin';
             date_default_timezone_set("America/Sao_Paulo");
             $data = date('Y-m-d H:i:s');
 
             $query = "INSERT INTO users (name, email, password, role, created_at) VALUES (?, ?, ?, ?, ?)";
             return $this->executeQuery($query, [$name, $email, $hashedPassword, $role, $data]);
-        } catch (PDOException $exception) {
+        } catch (Exception $exception) {
             if ($exception->getCode() === '23000') {
                 return "E-mail já está cadastrado.";
             }

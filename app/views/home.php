@@ -57,6 +57,12 @@
 
 
     <?php }?>
+
+    <section>
+        <?php if(isLoggedIn()) {?>
+            <h1>Seja bem vindo! <?= getSessionValue('username') ?> </h1>
+        <?php } ?>
+    </section>
 </main>
 
 <?php include "templates/footer.php" ?>

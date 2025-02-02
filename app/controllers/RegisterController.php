@@ -11,35 +11,29 @@ class RegisterController extends Controller
             $password = trim($dados['password'] ?? '');
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            if (strlen($username) < 3) {
-                $errors[] = "O nome de usuário deve ter pelo menos 3 caracteres.";
-            }
+            try {
+                Validator::minLength($password, 6);
 
-            if (strlen($password) < 6) {
-                $errors[] = "A senha deve ter pelo menos 6 caracteres.";
-            }
+                $userModel = new User();
+                $result = $userModel->registerUser($username, $email, $hashedPassword);
+                if ($result && $result->rowCount() > 0) {
 
-            if (empty($errors))
-            {
-                try {
-                    $user = new User($this->db);
-                    $result = $user->registerUser($username, $email, $hashedPassword);
 
-                    if ($result === true) {
+                    $user = $userModel->retornaInfosUser($email);
+
+                    if ($user) {
+                        setSessionValue('user_id', $user['id']);
+                        setSessionValue('username', $user['name']);
                         redirect('home');
-                        exit;
-                    } elseif (is_string($result)) {
-                        echo "Erro";
-                        $errors[] = $result; // Mensagem de erro retornada pela model
-                    } else {
-                        echo "Erro";
-
-                        $errors[] = "Erro desconhecido ao registrar o usuário.";
                     }
-                } catch (Exception $e) {
-                    $errors[] = "Erro ao processar o registro: " . $e->getMessage();
+                    exit;
+                } else {
+                    $errors[] = "Erro ao registrar um usuário";
                 }
+            } catch (Exception $e) {
+                $errors[] = $e->getMessage();
             }
+
         }
         return $errors;
     }

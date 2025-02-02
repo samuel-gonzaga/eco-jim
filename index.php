@@ -14,6 +14,7 @@ require_once __DIR__ . '/app/controllers/HomeController.php';
 require_once __DIR__ . '/app/models/User.php';
 require_once __DIR__ . '/app/models/Turmas.php';
 require_once __DIR__ . '/app/models/Model.php';
+require_once __DIR__ . '/app/models/Validator.php';
 
 
 require_once __DIR__ . '/app/router.php';

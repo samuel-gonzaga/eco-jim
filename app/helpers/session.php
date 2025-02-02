@@ -12,8 +12,14 @@ function isLoggedIn()
 
 function getSessionValue($key)
 {
-    return $_SESSION[$key] ?? null;
+    $value = $_SESSION[$key] ?? null;
+
+    if ($key === 'username' && !empty($value)) {
+        return explode(' ', trim($value))[0];
+    }
+    return $value;
 }
+
 function setSessionValue($key, $value)
 {
     $_SESSION[$key] = $value;

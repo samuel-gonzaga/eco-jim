@@ -22,7 +22,7 @@
         <?php if (isset($errors) && !empty($errors)): ?>
             <ul>
                 <?php foreach ($errors as $error): ?>
-                    <li style="color: red;"><?php echo htmlspecialchars($error); ?></li>
+                    <li style="color: red;"><?= htmlspecialchars($error); ?></li>
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
