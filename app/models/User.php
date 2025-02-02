@@ -32,8 +32,8 @@ class User extends Model {
 
     public function retornaInfosUser($email)
     {
-        $query = 'SELECT id, name, email, password FROM users WHERE email = ?';
-        $stmt = $this->executeQuery($query, [$email]);
+        $query = 'SELECT id, name, email, password FROM users WHERE email = :email';
+        $stmt = $this->executeQuery($query, ['email'=>$email]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

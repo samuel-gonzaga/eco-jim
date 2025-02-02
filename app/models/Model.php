@@ -14,7 +14,7 @@ class Model
         try {
             $stmt = $this->db->prepare($query);
             if (!empty($params)) {
-                $stmt->execute($params);
+                $stmt->execute($params); // linha 17
             } else {
                 $stmt->execute();
 
