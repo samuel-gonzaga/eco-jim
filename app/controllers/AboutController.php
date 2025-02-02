@@ -1,6 +1,5 @@
 <?php
 
-class AboutController
-{
+class AboutController {
 
 }

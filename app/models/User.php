@@ -16,10 +16,11 @@ class User extends Model {
                 throw new Exception("Formato de e-mail inválido.");
             }
 
+            $role = 'admin';
             date_default_timezone_set("America/Sao_Paulo");
             $data = date('Y-m-d H:i:s');
-            $role = 'admin';
-            $query = "INSERT INTO users (name, email, password, role, created_at) VALUES (:name, :email, :password, :role, :data)";
+
+            $query = "INSERT INTO users (name, email, password, role, created_at) VALUES (?, ?, ?, ?, ?)";
             return $this->executeQuery($query, [$name, $email, $hashedPassword, $role, $data]);
         } catch (PDOException $exception) {
             if ($exception->getCode() === '23000') {

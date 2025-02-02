@@ -1,11 +1,9 @@
 <?php
 
-class Controller
-{
+class Controller {
     protected $db;
 
-    public function __construct($db)
-    {
+    public function __construct($db) {
         $this->db = $db;
     }
 }

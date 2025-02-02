@@ -29,8 +29,11 @@ class RegisterController extends Controller
                         redirect('home');
                         exit;
                     } elseif (is_string($result)) {
+                        echo "Erro";
                         $errors[] = $result; // Mensagem de erro retornada pela model
                     } else {
+                        echo "Erro";
+
                         $errors[] = "Erro desconhecido ao registrar o usuário.";
                     }
                 } catch (Exception $e) {
