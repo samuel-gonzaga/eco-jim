@@ -18,9 +18,14 @@
         <section class="card">
             <h1 class="card-title"></h1>
             <p class="card-description"></p>
-            <button class="expand-btn">Ver Detalhes</button>
-            <div class="detalhes" style="display: none;">
-                <ul class="details-list"></ul>
+            <button id="expand-btn">Ver Detalhes</button>
+            <div id="detalhes" style="display: none;">
+                <ul class="details-list">
+                    <li>aaaa</li>
+                    <li>aaaa</li>
+                    <li>aaaa</li>
+                    <li>aaaa</li>
+                </ul>
             </div>
         </section>
     </template>
@@ -36,7 +41,7 @@
             <h2 id="turmaTitle">Adicionar Nova turma</h2>
             <button class="x" aria-label="Fechar modal" onclick="modal.close();">❌</button>
 
-            <form action="home" method="POST">
+            <form id="turmaForm" action="home" method="POST">
                 <input name="class" type="text" class="cardTitle" placeholder="Nome da turma" />
                 <button type="submit" class="addCard">Adicionar</button>
             </form>
@@ -58,12 +63,14 @@
 
     <?php }?>
 
-    <section>
-        <?php if(isLoggedIn()) {?>
-            <h1>Seja bem vindo! <?= getSessionValue('username') ?> </h1>
-        <?php } ?>
-    </section>
+
 </main>
+
+<section>
+    <?php if(isLoggedIn()) {?>
+        <h1>Seja bem vindo! <?= getSessionValue('username') ?> </h1>
+    <?php } ?>
+</section>
 
 <?php include "templates/footer.php" ?>
 <script src="/eco-jim/app/views/js/script.js"></script>

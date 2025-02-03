@@ -11,6 +11,7 @@ require_once __DIR__ . '/app/controllers/LoginController.php';
 require_once __DIR__ . '/app/controllers/LogoutController.php';
 require_once __DIR__ . '/app/controllers/HomeController.php';
 
+
 require_once __DIR__ . '/app/models/User.php';
 require_once __DIR__ . '/app/models/Turmas.php';
 require_once __DIR__ . '/app/models/Model.php';
