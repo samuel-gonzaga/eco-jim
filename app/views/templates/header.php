@@ -12,12 +12,19 @@ if ($currentRoute === 'about') {
 
 // Depende de usuário logado
 if (isLoggedIn()) {
+    $key = true;
+
     $linkHrefDashBoard = 'dashboard';
     $linkTextDashBoard = 'Dashboard';
-    $key = true;
     if ($currentRoute === 'dashboard') {
         $linkHrefDashBoard = 'home';
         $linkTextDashBoard = 'Home';
+    }
+    $linkHrefCreate = 'criar_sala';
+    $linkTextCreate = 'Turma';
+    if ($currentRoute === 'criar_sala') {
+        $linkHrefCreate = 'home';
+        $linkTextCreate = 'Home';
     }
 } else {
     $key = false;
@@ -33,6 +40,7 @@ if (isLoggedIn()) {
             <h1 class="logo">Eco JIM</h1>
             <ul class="nav-links">
                 <?php if ($key): ?>
+                    <li><a href="<?= $linkHrefCreate; ?>"><?= $linkTextCreate; ?></a></li>
                     <li><a href="<?= $linkHrefDashBoard; ?>"><?= $linkTextDashBoard; ?></a></li>
                 <?php endif; ?>
                 <li><a href="<?= $linkHref; ?>"><?= $linkText; ?></a></li>

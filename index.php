@@ -10,6 +10,7 @@ require_once __DIR__ . '/app/controllers/RegisterController.php';
 require_once __DIR__ . '/app/controllers/LoginController.php';
 require_once __DIR__ . '/app/controllers/LogoutController.php';
 require_once __DIR__ . '/app/controllers/HomeController.php';
+require_once __DIR__ . '/app/controllers/CreateClassController.php';
 
 require_once __DIR__ . '/app/models/User.php';
 require_once __DIR__ . '/app/models/Turmas.php';

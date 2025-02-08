@@ -30,6 +30,11 @@ class Route extends Model
             case 'dashboard':
                 require_once __DIR__ . '/../app/views/dashboard.php';
                 break;
+            case 'criar_sala':
+                $turma = new CreateClassController();
+                $errors = $turma->createClass($_POST);
+                require_once __DIR__ . '/../app/views/createClass.php';
+                break;
             default:
                 echo "Página não encontrada!";
                 break;

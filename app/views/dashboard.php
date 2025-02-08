@@ -1,3 +1,7 @@
+<?php
+    if(!isLoggedIn()) {redirect('home');}
+?>
+
 <!doctype html>
 <html lang="pt-br">
 <head>
